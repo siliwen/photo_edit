@@ -1,0 +1,48 @@
+{
+  "taskId": "job_1765352181715",
+  "timestamp": "2025-12-10T07:36:21.723Z",
+  "apiEndpoint": "https://api.apimart.ai/v1/images/generations",
+  "originalPayload": {
+    "project_id": "1765352181710",
+    "base_image": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765352005937_微信图片_2025-12-03_173338_775.png",
+    "reference_assets": [],
+    "mask_url": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765352181519_mask_1765352181510.png",
+    "mask_elements": [
+      {
+        "color": "#FF0000",
+        "type": "brush"
+      },
+      {
+        "color": "#FFFF00",
+        "type": "brush"
+      },
+      {
+        "color": "#FFFF00",
+        "type": "brush"
+      },
+      {
+        "color": "#FFFF00",
+        "type": "brush"
+      }
+    ],
+    "global_params": {
+      "output_resolution": "1938x3840",
+      "seed": 42,
+      "model": "banana2-pro"
+    },
+    "prompt": "@poly(125,238;125,255;127,267;137,272;149,278;164,281;177,281;188,278;200,269;206,256;208,244;189,238;163,235;143,235;130,236;127,238) 这只鸟改成猫头鹰\n@poly(149,386;140,396;133,412;127,422;118,431;111,441;103,450;103,462;112,462;121,455;129,448;140,444;152,441;163,438;174,428;181,415;182,401;184,382;181,372;169,373;156,379;149,383) 这只鸟改个动作\n@poly(246,383;245,397;247,408;248,420;253,432;263,440;277,443;288,445;297,452;308,458;319,464;327,462;325,451;314,440;304,427;296,414;289,402;277,387;265,381;252,376;248,383) "
+  },
+  "apiRequestBody": {
+    "model": "gemini-3-pro-image-preview",
+    "prompt": "[TASK DEFINITION]\nGenerate a high-quality image based on the input image and user requirements.\nOutput resolution: 1938x3840\n\n[INPUT IMAGES]\n- Image 1: Base image (main content)\n\n[USER REQUIREMENTS]\n@poly(125,238;125,255;127,267;137,272;149,278;164,281;177,281;188,278;200,269;206,256;208,244;189,238;163,235;143,235;130,236;127,238) 这只鸟改成猫头鹰\n@poly(149,386;140,396;133,412;127,422;118,431;111,441;103,450;103,462;112,462;121,455;129,448;140,444;152,441;163,438;174,428;181,415;182,401;184,382;181,372;169,373;156,379;149,383) 这只鸟改个动作\n@poly(246,383;245,397;247,408;248,420;253,432;263,440;277,443;288,445;297,452;308,458;319,464;327,462;325,451;314,440;304,427;296,414;289,402;277,387;265,381;252,376;248,383) \n\n[MASK REGIONS - CRITICAL INSTRUCTIONS]\n⚠️ A binary mask is provided to precisely define the modification areas:\n- WHITE areas in the mask: These regions MUST be modified according to user requirements\n- BLACK areas in the mask: These regions MUST remain completely unchanged\n- The mask contains 4 element(s) marked with red, yellow color(s) in the UI\n\n🎯 Modification Strategy:\n1. Identify the white regions in the provided mask\n2. Apply modifications ONLY to these white mask areas\n3. Preserve all other areas exactly as they appear in Image 1\n4. Ensure seamless blending between modified and unchanged regions\n5. Maintain the overall composition and lighting consistency\n\n[QUALITY REQUIREMENTS]\n- Maintain high image quality and sharpness\n- Ensure natural lighting and color consistency\n- Keep realistic textures and details\n- Preserve the original image composition where not modified\n- Create smooth transitions between masked and unmasked areas\n- Strictly follow the mask boundaries without bleeding effects\n\n[OUTPUT GUIDANCE]\nGenerate a single, complete image that:\n1. Modifies ONLY the white mask areas according to user requirements\n2. Keeps all black mask areas exactly as in the original image\n3. Ensures seamless integration between modified and preserved regions\n3. Outputs at exactly 1938x3840 resolution\n4. Delivers professional, high-quality results\n\n蒙版区域信息:\n蒙版中的红色区域: 红色区域包含1个元素\n蒙版中的黄色区域: 黄色区域包含3个元素",
+    "size": "9:16",
+    "resolution": "4K",
+    "n": 1,
+    "image_urls": [
+      {
+        "url": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765352005937_微信图片_2025-12-03_173338_775.png"
+      }
+    ],
+    "mask_url": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765352181519_mask_1765352181510.png"
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "taskId": "job_1765253164699",
+  "timestamp": "2025-12-09T04:06:04.701Z",
+  "apiEndpoint": "https://api.apimart.ai/v1/images/generations",
+  "originalPayload": {
+    "project_id": "1765253164692",
+    "base_image": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765253005292_微信图片_2025-12-03_173338_775.png",
+    "reference_assets": [],
+    "mask_url": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765253164414_mask_1765253164359.png",
+    "mask_elements": [
+      {
+        "color": "#FF0000",
+        "type": "rectangle"
+      },
+      {
+        "color": "#FF0000",
+        "type": "rectangle"
+      },
+      {
+        "color": "#FF0000",
+        "type": "rectangle"
+      },
+      {
+        "color": "#FF0000",
+        "type": "rectangle"
+      },
+      {
+        "color": "#00FF00",
+        "type": "rectangle"
+      },
+      {
+        "color": "#00FF00",
+        "type": "rectangle"
+      }
+    ],
+    "global_params": {
+      "output_resolution": "426x844",
+      "seed": 42,
+      "model": "banana2-pro"
+    },
+    "prompt": "@红色 鸟的形象换成猫头鹰  @绿色 换成针叶"
+  },
+  "apiRequestBody": {
+    "model": "gemini-3-pro-image-preview",
+    "prompt": "图1上蒙版标记的红色区域 鸟的形象换成猫头鹰  图1上蒙版标记的绿色区域 换成针叶\n\n[重要指令] 请使用提供的mask蒙版来精准定位需要修改的区域。蒙版中的红色、绿色标记区域需要按照上述描述进行修改，其他未被标记的区域保持不变。",
+    "size": "9:16",
+    "resolution": "1K",
+    "n": 1,
+    "image_urls": [
+      {
+        "url": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765253005292_微信图片_2025-12-03_173338_775.png"
+      }
+    ],
+    "mask_url": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765253164414_mask_1765253164359.png"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "project_id": "1765337605108",
+  "base_image": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765337460298_morris-co-strawberry-thief-stone-gold-A-PMP-MC006-27-V10_6c764024-3766-4599-88f3-f35231fc8062.webp.jpeg",
+  "reference_assets": [],
+  "mask_url": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765337604770_mask_1765337604708.png",
+  "mask_elements": [
+    {
+      "color": "#FF0000",
+      "type": "rectangle"
+    },
+    {
+      "color": "#FF0000",
+      "type": "rectangle"
+    },
+    {
+      "color": "#00FF00",
+      "type": "rectangle"
+    },
+    {
+      "color": "#00FF00",
+      "type": "rectangle"
+    },
+    {
+      "color": "#0000FF",
+      "type": "rectangle"
+    },
+    {
+      "color": "#FF00FF",
+      "type": "circle"
+    }
+  ],
+  "global_params": {
+    "output_resolution": "2400x3000",
+    "seed": 42,
+    "model": "banana2-pro"
+  },
+  "prompt": "@红色 这个形象的鸟统一变成猫头鹰  @绿色 这一形象的鸟统一变成小鸡 @蓝色 这一形象的叶子统一变成针叶 @品红 这种形象统一变成宝石，其他风格不变"
+}

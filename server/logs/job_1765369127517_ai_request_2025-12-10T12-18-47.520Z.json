@@ -1,0 +1,28 @@
+{
+  "taskId": "job_1765369127517",
+  "timestamp": "2025-12-10T12:18:47.520Z",
+  "apiEndpoint": "https://api.apimart.ai/v1/images/generations",
+  "originalPayload": {
+    "project_id": "test",
+    "base_image": "https://picsum.photos/seed/test/640/360",
+    "reference_assets": [],
+    "global_params": {
+      "output_resolution": "1024x576",
+      "seed": 42,
+      "model": "banana2-pro"
+    },
+    "prompt": "正式接口连通性验证"
+  },
+  "apiRequestBody": {
+    "model": "gemini-3-pro-image-preview",
+    "prompt": "[任务定义]\n根据输入主图与用户需求生成高质量图像。\n输出分辨率：1024x576\n\n[输入图片]\n- 图1：主图（需要修改的原图）\n\n[用户需求]\n正式接口连通性验证\n\n[质量要求]\n- 保持图像清晰与细节丰富\n- 维持自然光照与色彩一致性\n- 保持真实纹理与细节\n- 未修改区域保持与原图一致\n\n[输出指导]\n生成一张完整的最终图片，其应当：\n1. 按用户需求整体变换图像\n2. 保持自然外观与整体一致性\n3. 输出分辨率精确为 1024x576\n4. 保持专业级高质量效果",
+    "size": "16:9",
+    "resolution": "1K",
+    "n": 1,
+    "image_urls": [
+      {
+        "url": "https://picsum.photos/seed/test/640/360"
+      }
+    ]
+  }
+}

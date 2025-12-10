@@ -1,0 +1,28 @@
+{
+  "taskId": "job_1765360519510",
+  "timestamp": "2025-12-10T09:56:42.249Z",
+  "pollCount": 33,
+  "status": "completed",
+  "response": {
+    "code": 200,
+    "data": {
+      "actual_time": 81,
+      "completed": 1765360601,
+      "created": 1765360520,
+      "estimated_time": 100,
+      "id": "task_01KC3TZK007T4TK7JDRBGGY2H4",
+      "progress": 100,
+      "result": {
+        "images": [
+          {
+            "expires_at": 1765447001,
+            "url": [
+              "https://upload.apimart.ai/f/image/9998234639402536-01c9ddd0-f398-42ca-be28-3ac19287d428-image_task_01KC3V1YD17XSTJ9W21WVK70GS_0.png"
+            ]
+          }
+        ]
+      },
+      "status": "completed"
+    }
+  }
+}

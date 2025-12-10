@@ -1,0 +1,89 @@
+{
+  "project_id": "1765360322120",
+  "base_image": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765360253165_微信图片_2025-12-03_173338_775.png",
+  "reference_assets": [],
+  "mask_url": null,
+  "mask_elements": [
+    {
+      "id": "element_1765360266070",
+      "name": "矩形一",
+      "type": "rectangle",
+      "coords": [
+        128,
+        232,
+        205,
+        232,
+        205,
+        279,
+        128,
+        279
+      ]
+    },
+    {
+      "id": "element_1765360268503",
+      "name": "矩形二",
+      "type": "rectangle",
+      "coords": [
+        218,
+        231,
+        296,
+        231,
+        296,
+        284,
+        218,
+        284
+      ]
+    },
+    {
+      "id": "element_1765360271420",
+      "name": "矩形三",
+      "type": "rectangle",
+      "coords": [
+        105,
+        383,
+        180,
+        383,
+        180,
+        459,
+        105,
+        459
+      ]
+    },
+    {
+      "id": "element_1765360273620",
+      "name": "矩形四",
+      "type": "rectangle",
+      "coords": [
+        242,
+        375,
+        315,
+        375,
+        315,
+        465,
+        242,
+        465
+      ]
+    },
+    {
+      "id": "element_1765360276719",
+      "name": "矩形五",
+      "type": "rectangle",
+      "coords": [
+        103,
+        734,
+        189,
+        734,
+        189,
+        803,
+        103,
+        803
+      ]
+    }
+  ],
+  "global_params": {
+    "output_resolution": "1938x3840",
+    "seed": 42,
+    "model": "banana2-pro"
+  },
+  "prompt": "@矩形一 的鸟更改为兔子  @矩形二 的鸟更改为老虎   @矩形三 的鸟更改为绵阳  @矩形四 的鸟更改为蛇  @矩形五 的鸟更改为袋鼠  比例风格保持不变"
+}

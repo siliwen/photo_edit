@@ -1,0 +1,13 @@
+{
+  "project_id": "test_proj_1",
+  "base_image": "https://example.com/base.jpg",
+  "reference_assets": [],
+  "mask_url": null,
+  "mask_elements": [],
+  "global_params": {
+    "output_resolution": "1024x1024",
+    "seed": 42,
+    "model": "test_model"
+  },
+  "prompt": "Make it pop @rect(100,100,50,50): change to blue"
+}

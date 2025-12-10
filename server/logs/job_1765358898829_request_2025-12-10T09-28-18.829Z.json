@@ -1,0 +1,36 @@
+{
+  "prompt": "@矩形一 将该区域替换为新Logo；@红色 将人物服装替换为白衣",
+  "base_image": "https://picsum.photos/seed/integration2/1024/576",
+  "mask_url": "https://picsum.photos/seed/mask/1024/576",
+  "mask_elements": [
+    {
+      "type": "rectangle",
+      "name": "矩形一",
+      "coords": [
+        10,
+        10,
+        300,
+        10,
+        300,
+        200,
+        10,
+        200
+      ]
+    },
+    {
+      "type": "brush",
+      "name": "画笔二",
+      "coords": [
+        50,
+        50,
+        60,
+        60,
+        70,
+        70
+      ]
+    }
+  ],
+  "global_params": {
+    "output_resolution": "1024x576"
+  }
+}

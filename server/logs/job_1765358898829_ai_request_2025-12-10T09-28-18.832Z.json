@@ -1,0 +1,54 @@
+{
+  "taskId": "job_1765358898829",
+  "timestamp": "2025-12-10T09:28:18.832Z",
+  "apiEndpoint": "https://api.apimart.ai/v1/images/generations",
+  "originalPayload": {
+    "prompt": "@矩形一 将该区域替换为新Logo；@红色 将人物服装替换为白衣",
+    "base_image": "https://picsum.photos/seed/integration2/1024/576",
+    "mask_url": "https://picsum.photos/seed/mask/1024/576",
+    "mask_elements": [
+      {
+        "type": "rectangle",
+        "name": "矩形一",
+        "coords": [
+          10,
+          10,
+          300,
+          10,
+          300,
+          200,
+          10,
+          200
+        ]
+      },
+      {
+        "type": "brush",
+        "name": "画笔二",
+        "coords": [
+          50,
+          50,
+          60,
+          60,
+          70,
+          70
+        ]
+      }
+    ],
+    "global_params": {
+      "output_resolution": "1024x576"
+    }
+  },
+  "apiRequestBody": {
+    "model": "gemini-3-pro-image-preview",
+    "prompt": "[任务定义]\n根据输入主图与用户需求生成高质量图像。\n输出分辨率：1024x576\n\n[输入图片]\n- 图1：主图（需要修改的原图）\n\n[用户需求]\n将该区域替换为新Logo；@红色 将人物服装替换为白衣\n\n[蒙版区域 - 重要说明]\n⚠️ 已提供二值蒙版用于精确定义修改区域：\n- 白色区域：必须按照用户需求进行修改\n- 黑色区域：必须保持完全不变\n- UI 中包含 2 个元素，标记颜色：white\n\n🎯 修改策略：\n1. 识别并仅在蒙版的白色区域进行修改\n2. 保持黑色区域与图1一致，不做任何改变\n3. 在修改与未修改区域之间进行自然融合\n4. 保持整体构图与光照一致性\n\n[质量要求]\n- 保持图像清晰与细节丰富\n- 维持自然光照与色彩一致性\n- 保持真实纹理与细节\n- 未修改区域保持与原图一致\n- 在蒙版与非蒙版区域之间创建平滑过渡\n- 严格遵守蒙版边界，避免渗漏\n\n[输出指导]\n生成一张完整的最终图片，其应当：\n1. 仅在蒙版白色区域按用户需求修改\n2. 保持所有黑色区域与原图一致\n3. 在修改与保留区域之间实现自然融合\n3. 输出分辨率精确为 1024x576\n4. 保持专业级高质量效果\n\n蒙版区域信息:\n蒙版中的白色区域: 白色区域包含2个元素",
+    "size": "16:9",
+    "resolution": "1K",
+    "n": 1,
+    "image_urls": [
+      {
+        "url": "https://picsum.photos/seed/integration2/1024/576"
+      }
+    ],
+    "mask_url": "https://picsum.photos/seed/mask/1024/576"
+  }
+}

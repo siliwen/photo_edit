@@ -1,0 +1,14 @@
+{
+  "taskId": "job_1765253060171",
+  "timestamp": "2025-12-09T04:04:21.675Z",
+  "status": 200,
+  "response": {
+    "code": 200,
+    "data": [
+      {
+        "status": "submitted",
+        "task_id": "task_01KC0MG6WSZSYF5BGZM243D6QE"
+      }
+    ]
+  }
+}

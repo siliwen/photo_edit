@@ -1,0 +1,50 @@
+{
+  "project_id": "1765361510500",
+  "base_image": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765358759164_微信图片_2025-12-03_173338_775.png",
+  "reference_assets": [
+    {
+      "id": "0828aae991264497b9f70be61bc21e29",
+      "url": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765360494316_0828aae991264497b9f70be61bc21e29.png",
+      "preprocess": "none"
+    }
+  ],
+  "mask_url": null,
+  "mask_elements": [
+    {
+      "id": "element_1765361461919",
+      "name": "矩形一",
+      "type": "rectangle",
+      "coords": [
+        30,
+        95,
+        82,
+        95,
+        82,
+        212,
+        30,
+        212
+      ]
+    },
+    {
+      "id": "element_1765361468617",
+      "name": "矩形二",
+      "type": "rectangle",
+      "coords": [
+        127,
+        234,
+        208,
+        234,
+        208,
+        279,
+        127,
+        279
+      ]
+    }
+  ],
+  "global_params": {
+    "output_resolution": "1938x3840",
+    "seed": 42,
+    "model": "banana2-pro"
+  },
+  "prompt": "@矩形一 所有同样的树叶改成针叶   @矩形二 所有同样的鸟改成猫头鹰，其他保持不变。"
+}

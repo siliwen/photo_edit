@@ -1,0 +1,51 @@
+{
+  "taskId": "job_1765191132258",
+  "timestamp": "2025-12-08T10:52:12.258Z",
+  "originalPayload": {
+    "project_id": "1765191132251",
+    "base_image": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765190872953_3861fae15fa14566acd11d8565c81396 (1).png",
+    "reference_assets": [
+      {
+        "id": "ref_1765190893034_0",
+        "url": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765190891532_b96bd27bba6648ff83482d8a95a6416a.png",
+        "preprocess": "none"
+      }
+    ],
+    "mask_regions": [
+      {
+        "id": "mask_1765190883111",
+        "maskUrl": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765191131966_mask_mask_1765190883111.png",
+        "description": "logo",
+        "action": "generation",
+        "referenceLink": null,
+        "controlMode": "content",
+        "strength": 1,
+        "promptSuffix": "",
+        "label": "",
+        "color": "#3b82f6"
+      }
+    ],
+    "global_params": {
+      "output_resolution": "3840x2160",
+      "seed": 42,
+      "model": "banana2-pro"
+    },
+    "prompt": "把主图中的logo#mask_1 替换成@ref_1765190893034_0 的logo样式，其他保持不变"
+  },
+  "apiRequestBody": {
+    "model": "gemini-3-pro-image-preview",
+    "prompt": "把主图中的logomask region 1 替换成image 2 的logo样式，其他保持不变\n\nIn mask region 1: logo, generate content",
+    "size": "16:9",
+    "resolution": "4K",
+    "n": 1,
+    "image_urls": [
+      {
+        "url": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765190872953_3861fae15fa14566acd11d8565c81396 (1).png"
+      },
+      {
+        "url": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765190891532_b96bd27bba6648ff83482d8a95a6416a.png"
+      }
+    ],
+    "mask_url": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765191131966_mask_mask_1765190883111.png"
+  }
+}

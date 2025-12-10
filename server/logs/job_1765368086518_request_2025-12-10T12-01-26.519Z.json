@@ -1,0 +1,11 @@
+{
+  "project_id": "test",
+  "base_image": "https://picsum.photos/seed/test/640/360",
+  "reference_assets": [],
+  "global_params": {
+    "output_resolution": "1024x576",
+    "seed": 42,
+    "model": "banana2-pro"
+  },
+  "prompt": "测试修复轮询机制"
+}

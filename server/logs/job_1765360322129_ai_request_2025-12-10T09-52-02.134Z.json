@@ -1,0 +1,106 @@
+{
+  "taskId": "job_1765360322129",
+  "timestamp": "2025-12-10T09:52:02.134Z",
+  "apiEndpoint": "https://api.apimart.ai/v1/images/generations",
+  "originalPayload": {
+    "project_id": "1765360322120",
+    "base_image": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765360253165_微信图片_2025-12-03_173338_775.png",
+    "reference_assets": [],
+    "mask_url": null,
+    "mask_elements": [
+      {
+        "id": "element_1765360266070",
+        "name": "矩形一",
+        "type": "rectangle",
+        "coords": [
+          128,
+          232,
+          205,
+          232,
+          205,
+          279,
+          128,
+          279
+        ]
+      },
+      {
+        "id": "element_1765360268503",
+        "name": "矩形二",
+        "type": "rectangle",
+        "coords": [
+          218,
+          231,
+          296,
+          231,
+          296,
+          284,
+          218,
+          284
+        ]
+      },
+      {
+        "id": "element_1765360271420",
+        "name": "矩形三",
+        "type": "rectangle",
+        "coords": [
+          105,
+          383,
+          180,
+          383,
+          180,
+          459,
+          105,
+          459
+        ]
+      },
+      {
+        "id": "element_1765360273620",
+        "name": "矩形四",
+        "type": "rectangle",
+        "coords": [
+          242,
+          375,
+          315,
+          375,
+          315,
+          465,
+          242,
+          465
+        ]
+      },
+      {
+        "id": "element_1765360276719",
+        "name": "矩形五",
+        "type": "rectangle",
+        "coords": [
+          103,
+          734,
+          189,
+          734,
+          189,
+          803,
+          103,
+          803
+        ]
+      }
+    ],
+    "global_params": {
+      "output_resolution": "1938x3840",
+      "seed": 42,
+      "model": "banana2-pro"
+    },
+    "prompt": "@矩形一 的鸟更改为兔子  @矩形二 的鸟更改为老虎   @矩形三 的鸟更改为绵阳  @矩形四 的鸟更改为蛇  @矩形五 的鸟更改为袋鼠  比例风格保持不变"
+  },
+  "apiRequestBody": {
+    "model": "gemini-3-pro-image-preview",
+    "prompt": "[任务定义]\n根据输入主图与用户需求生成高质量图像。\n输出分辨率：1938x3840\n\n[输入图片]\n- 图1：主图（需要修改的原图）\n\n[用户需求]\n的鸟更改为兔子   的鸟更改为老虎    的鸟更改为绵阳   的鸟更改为蛇   的鸟更改为袋鼠  比例风格保持不变\n\n[质量要求]\n- 保持图像清晰与细节丰富\n- 维持自然光照与色彩一致性\n- 保持真实纹理与细节\n- 未修改区域保持与原图一致\n\n[输出指导]\n生成一张完整的最终图片，其应当：\n1. 按用户需求整体变换图像\n2. 保持自然外观与整体一致性\n3. 输出分辨率精确为 1938x3840\n4. 保持专业级高质量效果\n\n蒙版区域信息:\n蒙版中的白色区域: 白色区域包含5个元素",
+    "size": "9:16",
+    "resolution": "4K",
+    "n": 1,
+    "image_urls": [
+      {
+        "url": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765360253165_微信图片_2025-12-03_173338_775.png"
+      }
+    ]
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "project_id": "1765357778980",
+  "base_image": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765357608743_微信图片_2025-12-03_173338_775.png",
+  "reference_assets": [],
+  "mask_url": null,
+  "mask_elements": [
+    {
+      "id": "element_1765357612919",
+      "name": "矩形一",
+      "type": "rectangle",
+      "coords": [
+        119,
+        229,
+        215,
+        229,
+        215,
+        286,
+        119,
+        286
+      ]
+    },
+    {
+      "id": "element_1765357615335",
+      "name": "矩形二",
+      "type": "rectangle",
+      "coords": [
+        224,
+        223,
+        300,
+        223,
+        300,
+        278,
+        224,
+        278
+      ]
+    },
+    {
+      "id": "element_1765357618101",
+      "name": "矩形三",
+      "type": "rectangle",
+      "coords": [
+        106,
+        382,
+        184,
+        382,
+        184,
+        458,
+        106,
+        458
+      ]
+    },
+    {
+      "id": "element_1765357619885",
+      "name": "矩形四",
+      "type": "rectangle",
+      "coords": [
+        248,
+        381,
+        319,
+        381,
+        319,
+        451,
+        248,
+        451
+      ]
+    },
+    {
+      "id": "element_1765357623301",
+      "name": "矩形五",
+      "type": "rectangle",
+      "coords": [
+        118,
+        566,
+        214,
+        566,
+        214,
+        633,
+        118,
+        633
+      ]
+    }
+  ],
+  "global_params": {
+    "output_resolution": "1938x3840",
+    "seed": 42,
+    "model": "banana2-pro"
+  },
+  "prompt": "@矩形一 变成海豚  @矩形二 改成河马  @矩形三 改成美女  @矩形四 改成帅哥 @矩形五 改成小孩 其他元素保持不变"
+}

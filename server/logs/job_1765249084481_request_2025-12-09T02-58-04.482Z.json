@@ -1,0 +1,52 @@
+{
+  "taskId": "job_1765249084481",
+  "timestamp": "2025-12-09T02:58:04.482Z",
+  "originalPayload": {
+    "project_id": "1765249084474",
+    "base_image": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765248809264_9998234818039348-02813453-528e-4fb0-94f3-660879de7789-image_task_01KBYGPCDY8T516J47RFPP1H2T_0.png",
+    "reference_assets": [
+      {
+        "id": "ref_1765248839617_0",
+        "url": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765248839380_logo.png",
+        "preprocess": "none"
+      }
+    ],
+    "mask_url": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765249084199_mask_1765249084194.png",
+    "mask_elements": [
+      {
+        "color": "#00FF00",
+        "type": "rectangle"
+      },
+      {
+        "color": "#FF00FF",
+        "type": "rectangle"
+      },
+      {
+        "color": "#FFFF00",
+        "type": "rectangle"
+      }
+    ],
+    "global_params": {
+      "output_resolution": "3840x2160",
+      "seed": 42,
+      "model": "banana2-pro"
+    },
+    "prompt": "@绿色 主题色调改成红色   @品红 的文字改成楷书  @黄色 将图片@ref_1765248839617_0 的内容添加进去"
+  },
+  "apiRequestBody": {
+    "model": "gemini-3-pro-image-preview",
+    "prompt": "the 绿色 marked area 主题色调改成红色   the 品红 marked area 的文字改成楷书  the 黄色 marked area 将图片image 2 的内容添加进去",
+    "size": "16:9",
+    "resolution": "4K",
+    "n": 1,
+    "image_urls": [
+      {
+        "url": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765248809264_9998234818039348-02813453-528e-4fb0-94f3-660879de7789-image_task_01KBYGPCDY8T516J47RFPP1H2T_0.png"
+      },
+      {
+        "url": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765248839380_logo.png"
+      }
+    ],
+    "mask_url": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765249084199_mask_1765249084194.png"
+  }
+}

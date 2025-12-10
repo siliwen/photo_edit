@@ -1,0 +1,13 @@
+{
+  "prompt": "坐标标注端到端验证：@rect(100,80,180,140) 将该区域替换为草地",
+  "base_image": "https://picsum.photos/seed/coord2/1024/576",
+  "reference_assets": [
+    {
+      "id": "ref_001",
+      "url": "https://picsum.photos/seed/ref1/512/512"
+    }
+  ],
+  "global_params": {
+    "output_resolution": "1024x576"
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "project_id": "1765357011177",
+  "base_image": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765356804962_微信图片_2025-12-03_173338_775.png",
+  "reference_assets": [],
+  "mask_url": null,
+  "mask_elements": [
+    {
+      "id": "element_1765356811642",
+      "name": "矩形一",
+      "type": "rectangle",
+      "coords": [
+        125,
+        228,
+        207,
+        228,
+        207,
+        291,
+        125,
+        291
+      ]
+    },
+    {
+      "id": "element_1765356813442",
+      "name": "矩形二",
+      "type": "rectangle",
+      "coords": [
+        220,
+        229,
+        298,
+        229,
+        298,
+        287,
+        220,
+        287
+      ]
+    },
+    {
+      "id": "element_1765356817059",
+      "name": "矩形三",
+      "type": "rectangle",
+      "coords": [
+        101,
+        373,
+        176,
+        373,
+        176,
+        456,
+        101,
+        456
+      ]
+    },
+    {
+      "id": "element_1765356821825",
+      "name": "矩形四",
+      "type": "rectangle",
+      "coords": [
+        247,
+        379,
+        322,
+        379,
+        322,
+        452,
+        247,
+        452
+      ]
+    },
+    {
+      "id": "element_1765356824609",
+      "name": "矩形五",
+      "type": "rectangle",
+      "coords": [
+        213,
+        576,
+        307,
+        576,
+        307,
+        632,
+        213,
+        632
+      ]
+    }
+  ],
+  "global_params": {
+    "output_resolution": "1938x3840",
+    "seed": 42,
+    "model": "banana2-pro"
+  },
+  "prompt": "@矩形一 更改为老鼠  @矩形二 更改为大象  @矩形三 更改为美女  @矩形四 更改为帅哥  @矩形五 更改为月亮   风格需要一致其他保持不变"
+}

@@ -1,0 +1,55 @@
+{
+  "taskId": "job_1765247969115",
+  "timestamp": "2025-12-09T02:39:29.119Z",
+  "originalPayload": {
+    "project_id": "1765247969106",
+    "base_image": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765247861218_微信图片_2025-12-03_173338_775.png",
+    "reference_assets": [],
+    "mask_url": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765247968946_mask_1765247968938.png",
+    "mask_elements": [
+      {
+        "color": "#FF0000",
+        "type": "rectangle"
+      },
+      {
+        "color": "#FF0000",
+        "type": "rectangle"
+      },
+      {
+        "color": "#0000FF",
+        "type": "brush"
+      },
+      {
+        "color": "#0000FF",
+        "type": "brush"
+      },
+      {
+        "color": "#0000FF",
+        "type": "brush"
+      },
+      {
+        "color": "#0000FF",
+        "type": "brush"
+      }
+    ],
+    "global_params": {
+      "output_resolution": "3840x2160",
+      "seed": 42,
+      "model": "banana2-pro"
+    },
+    "prompt": "@红色 的鸟需要改变形态进行重绘@蓝色 区域也需要进行重绘，其他方面保持不变"
+  },
+  "apiRequestBody": {
+    "model": "gemini-3-pro-image-preview",
+    "prompt": "the 红色 marked area 的鸟需要改变形态进行重绘the 蓝色 marked area 区域也需要进行重绘，其他方面保持不变",
+    "size": "16:9",
+    "resolution": "4K",
+    "n": 1,
+    "image_urls": [
+      {
+        "url": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765247861218_微信图片_2025-12-03_173338_775.png"
+      }
+    ],
+    "mask_url": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765247968946_mask_1765247968938.png"
+  }
+}

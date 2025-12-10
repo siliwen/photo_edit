@@ -1,0 +1,77 @@
+{
+  "taskId": "job_1765251130833",
+  "timestamp": "2025-12-09T03:32:10.835Z",
+  "apiEndpoint": "https://api.apimart.ai/v1/images/generations",
+  "originalPayload": {
+    "project_id": "1765251130826",
+    "base_image": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765250759185_微信图片_2025-12-03_173338_775.png",
+    "reference_assets": [
+      {
+        "id": "9998234818039348-02813453-528e-4fb0-94f3-660879de7789-image_task_01KBYGPCDY8T516J47RFPP1H2T_0",
+        "url": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765250831358_9998234818039348-02813453-528e-4fb0-94f3-660879de7789-image_task_01KBYGPCDY8T516J47RFPP1H2T_0.png",
+        "preprocess": "none"
+      }
+    ],
+    "mask_url": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765251130636_mask_1765251130628.png",
+    "mask_elements": [
+      {
+        "color": "#FF0000",
+        "type": "rectangle"
+      },
+      {
+        "color": "#FF0000",
+        "type": "rectangle"
+      },
+      {
+        "color": "#FF0000",
+        "type": "rectangle"
+      },
+      {
+        "color": "#FF0000",
+        "type": "rectangle"
+      },
+      {
+        "color": "#FFFF00",
+        "type": "rectangle"
+      },
+      {
+        "color": "#FFFF00",
+        "type": "rectangle"
+      },
+      {
+        "color": "#FFFF00",
+        "type": "rectangle"
+      },
+      {
+        "color": "#FFFF00",
+        "type": "rectangle"
+      },
+      {
+        "color": "#00FFFF",
+        "type": "rectangle"
+      }
+    ],
+    "global_params": {
+      "output_resolution": "426x844",
+      "seed": 42,
+      "model": "banana2-pro"
+    },
+    "prompt": "@红色 鸟的样子改成猫头鹰  @黄色 叶子改成针叶  @青色 将@9998234818039348-02813453-528e-4fb0-94f3-660879de7789-image_task_01KBYGPCDY8T516J47RFPP1H2T_0 的logo带进去"
+  },
+  "apiRequestBody": {
+    "model": "gemini-3-pro-image-preview",
+    "prompt": "蒙版上的红色 鸟的样子改成猫头鹰  蒙版上的黄色 叶子改成针叶  蒙版上的青色 将图2 的logo带进去",
+    "size": "9:16",
+    "resolution": "1K",
+    "n": 1,
+    "image_urls": [
+      {
+        "url": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765250759185_微信图片_2025-12-03_173338_775.png"
+      },
+      {
+        "url": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765250831358_9998234818039348-02813453-528e-4fb0-94f3-660879de7789-image_task_01KBYGPCDY8T516J47RFPP1H2T_0.png"
+      }
+    ],
+    "mask_url": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765251130636_mask_1765251130628.png"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "project_id": "1765345987619",
+  "base_image": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765345026476_微信图片_2025-12-03_173338_775.png",
+  "reference_assets": [],
+  "mask_url": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765345987324_mask_1765345987236.png",
+  "mask_elements": [
+    {
+      "color": "#FF0000",
+      "type": "rectangle"
+    },
+    {
+      "color": "#FF0000",
+      "type": "rectangle"
+    },
+    {
+      "color": "#0000FF",
+      "type": "rectangle"
+    },
+    {
+      "color": "#0000FF",
+      "type": "rectangle"
+    },
+    {
+      "color": "#FFFF00",
+      "type": "rectangle"
+    },
+    {
+      "color": "#FFFF00",
+      "type": "rectangle"
+    },
+    {
+      "color": "#00FFFF",
+      "type": "circle"
+    }
+  ],
+  "global_params": {
+    "output_resolution": "1938x3840",
+    "seed": 42,
+    "model": "banana2-pro"
+  },
+  "prompt": "红色蒙版区域的鸟换成猫头鹰    蓝色蒙版区域的鸟换成海豚   黄色蒙版区域的叶子换成针叶  青色蒙版区域换成宝石  其他内容保持不变  不要将蒙版颜色添加在输出图片中"
+}

@@ -1,0 +1,11 @@
+{
+  "project_id": "1765369026734",
+  "base_image": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765368782046_微信图片_2025-12-03_173338_775.png",
+  "reference_assets": [],
+  "global_params": {
+    "output_resolution": "1938x3840",
+    "seed": 42,
+    "model": "banana2-pro"
+  },
+  "prompt": "@rect(116,221,94,61) 鸟换成猫头鹰   @rect(218,230,77,45) 鸟换成螳螂  @rect(353,93,44,107) 叶子换成针叶 @rect(180,345,67,78) 换成蓝宝石\n@rect(116,221,94,61) @rect(218,230,77,45) @rect(353,93,44,107) @rect(180,345,67,78)"
+}

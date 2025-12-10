@@ -1,0 +1,11 @@
+{
+  "project_id": "1765367875558",
+  "base_image": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765367462603_微信图片_2025-12-03_173338_775.png",
+  "reference_assets": [],
+  "global_params": {
+    "output_resolution": "1938x3840",
+    "seed": 42,
+    "model": "banana2-pro"
+  },
+  "prompt": "@rect(126,232,75,43) 的鸟改成老虎  @rect(217,232,83,44) 的鸟改成狮子  @rect(241,377,85,85) 鸟改成海豚  @rect(352,92,47,120) 叶子改成针叶  @rect(355,314,43,106) 叶子改成枫叶\n@rect(126,232,75,43) @rect(217,232,83,44) @rect(241,377,85,85) @rect(352,92,47,120) @rect(355,314,43,106)"
+}

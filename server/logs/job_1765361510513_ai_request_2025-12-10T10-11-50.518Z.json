@@ -1,0 +1,70 @@
+{
+  "taskId": "job_1765361510513",
+  "timestamp": "2025-12-10T10:11:50.518Z",
+  "apiEndpoint": "https://api.apimart.ai/v1/images/generations",
+  "originalPayload": {
+    "project_id": "1765361510500",
+    "base_image": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765358759164_微信图片_2025-12-03_173338_775.png",
+    "reference_assets": [
+      {
+        "id": "0828aae991264497b9f70be61bc21e29",
+        "url": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765360494316_0828aae991264497b9f70be61bc21e29.png",
+        "preprocess": "none"
+      }
+    ],
+    "mask_url": null,
+    "mask_elements": [
+      {
+        "id": "element_1765361461919",
+        "name": "矩形一",
+        "type": "rectangle",
+        "coords": [
+          30,
+          95,
+          82,
+          95,
+          82,
+          212,
+          30,
+          212
+        ]
+      },
+      {
+        "id": "element_1765361468617",
+        "name": "矩形二",
+        "type": "rectangle",
+        "coords": [
+          127,
+          234,
+          208,
+          234,
+          208,
+          279,
+          127,
+          279
+        ]
+      }
+    ],
+    "global_params": {
+      "output_resolution": "1938x3840",
+      "seed": 42,
+      "model": "banana2-pro"
+    },
+    "prompt": "@矩形一 所有同样的树叶改成针叶   @矩形二 所有同样的鸟改成猫头鹰，其他保持不变。"
+  },
+  "apiRequestBody": {
+    "model": "gemini-3-pro-image-preview",
+    "prompt": "[任务定义]\n根据输入主图与用户需求生成高质量图像。\n输出分辨率：1938x3840\n\n[输入图片]\n- 图1：主图（需要修改的原图）\n- 图2：参考图\n\n[用户需求]\n所有同样的树叶改成针叶    所有同样的鸟改成猫头鹰，其他保持不变。\n\n[质量要求]\n- 保持图像清晰与细节丰富\n- 维持自然光照与色彩一致性\n- 保持真实纹理与细节\n- 未修改区域保持与原图一致\n\n[输出指导]\n生成一张完整的最终图片，其应当：\n1. 按用户需求整体变换图像\n2. 保持自然外观与整体一致性\n3. 输出分辨率精确为 1938x3840\n4. 保持专业级高质量效果\n\n蒙版区域信息:\n蒙版中的白色区域: 白色区域包含2个元素",
+    "size": "9:16",
+    "resolution": "4K",
+    "n": 1,
+    "image_urls": [
+      {
+        "url": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765358759164_微信图片_2025-12-03_173338_775.png"
+      },
+      {
+        "url": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765360494316_0828aae991264497b9f70be61bc21e29.png"
+      }
+    ]
+  }
+}

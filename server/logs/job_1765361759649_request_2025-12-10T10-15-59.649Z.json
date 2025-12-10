@@ -1,0 +1,13 @@
+{
+  "prompt": "统一坐标标注验证：将 @rect(80,60,160,120) 区域替换为草地",
+  "base_image": "https://picsum.photos/seed/coord/1024/576",
+  "reference_assets": [
+    {
+      "id": "ref_001",
+      "url": "https://picsum.photos/seed/ref1/512/512"
+    }
+  ],
+  "global_params": {
+    "output_resolution": "1024x576"
+  }
+}

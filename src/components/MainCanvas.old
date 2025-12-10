@@ -1,9 +1,0 @@
-import React from 'react'
-import { useAppStore } from '../store'
-
-// ✅ 此组件已被 BaseImageCard 替代，保留仅为兼容
-const MainCanvas: React.FC = () => {
-  return null  // 使用 BaseImageCard
-}
-
-export default MainCanvas

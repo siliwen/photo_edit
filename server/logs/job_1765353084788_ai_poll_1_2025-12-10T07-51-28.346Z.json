@@ -1,0 +1,20 @@
+{
+  "taskId": "job_1765353084788",
+  "timestamp": "2025-12-10T07:51:28.346Z",
+  "pollCount": 1,
+  "status": "failed",
+  "response": {
+    "code": 200,
+    "data": {
+      "created": 1765353085,
+      "error": {
+        "code": "task_failed",
+        "message": "请求上游地址失败"
+      },
+      "estimated_time": 100,
+      "id": "task_01KC3KWPTSRFTPFJXBSD7WD8AQ",
+      "progress": 100,
+      "status": "failed"
+    }
+  }
+}

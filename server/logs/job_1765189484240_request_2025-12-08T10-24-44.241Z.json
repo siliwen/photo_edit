@@ -1,0 +1,48 @@
+{
+  "taskId": "job_1765189484240",
+  "timestamp": "2025-12-08T10:24:44.241Z",
+  "originalPayload": {
+    "project_id": "1765189484235",
+    "base_image": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765189442606_68aac8898e774beabb267ca8eb3d293f.png",
+    "reference_assets": [
+      {
+        "id": "ref_1765189459227_0",
+        "url": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765189457945_0828aae991264497b9f70be61bc21e29.png",
+        "preprocess": "none"
+      }
+    ],
+    "mask_regions": [
+      {
+        "id": "mask_1765189448016",
+        "maskUrl": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765189483949_mask_mask_1765189448016.png",
+        "description": "logo",
+        "action": "generation",
+        "referenceLink": null,
+        "controlMode": "content",
+        "strength": 1,
+        "promptSuffix": "",
+        "label": "",
+        "color": "#3b82f6"
+      }
+    ],
+    "global_params": {
+      "output_resolution": "3840x2160",
+      "seed": 42,
+      "model": "banana2-pro"
+    },
+    "prompt": "把#mask_1 logo替换成@ref_1765189459227_0 中logo的形象"
+  },
+  "apiRequestBody": {
+    "model": "gemini-3-pro-image-preview",
+    "prompt": "把#mask_1 logo替换成@ref_1765189459227_0 中logo的形象\n\nIn mask region 1: logo, generate content",
+    "size": "16:9",
+    "resolution": "4K",
+    "n": 1,
+    "image_urls": [
+      {
+        "url": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765189457945_0828aae991264497b9f70be61bc21e29.png"
+      }
+    ],
+    "mask_url": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765189483949_mask_mask_1765189448016.png"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "taskId": "job_1765281293730",
+  "timestamp": "2025-12-09T11:54:53.734Z",
+  "apiEndpoint": "https://api.apimart.ai/v1/images/generations",
+  "originalPayload": {
+    "project_id": "1765281293717",
+    "base_image": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765281224082_微信图片_2025-12-03_173338_775.png",
+    "reference_assets": [],
+    "mask_url": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765281293440_mask_1765281293429.png",
+    "mask_elements": [
+      {
+        "color": "#FF0000",
+        "type": "rectangle"
+      },
+      {
+        "color": "#FF0000",
+        "type": "rectangle"
+      },
+      {
+        "color": "#00FFFF",
+        "type": "rectangle"
+      },
+      {
+        "color": "#00FFFF",
+        "type": "rectangle"
+      }
+    ],
+    "global_params": {
+      "output_resolution": "1938x3840",
+      "seed": 42,
+      "model": "banana2-pro"
+    },
+    "prompt": "@红色 鸟换成猫头鹰  @青色 花换成玫瑰花"
+  },
+  "apiRequestBody": {
+    "model": "gemini-3-pro-image-preview",
+    "prompt": "[TASK DEFINITION]\nGenerate a high-quality image based on the input image and user requirements.\nOutput resolution: 1938x3840\n\n[INPUT IMAGES]\n- Image 1: Base image (main content)\n\n[USER REQUIREMENTS]\n图1上蒙版标记的红色区域 鸟换成猫头鹰  图1上蒙版标记的青色区域 花换成玫瑰花\n\n[MASK REGIONS - CRITICAL INSTRUCTIONS]\n⚠️ A binary mask is provided to precisely define the modification areas:\n- WHITE areas in the mask: These regions MUST be modified according to user requirements\n- BLACK areas in the mask: These regions MUST remain completely unchanged\n- The mask contains 4 element(s) marked with red, cyan color(s) in the UI\n\n🎯 Modification Strategy:\n1. Identify the white regions in the provided mask\n2. Apply modifications ONLY to these white mask areas\n3. Preserve all other areas exactly as they appear in Image 1\n4. Ensure seamless blending between modified and unchanged regions\n5. Maintain the overall composition and lighting consistency\n\n[QUALITY REQUIREMENTS]\n- Maintain high image quality and sharpness\n- Ensure natural lighting and color consistency\n- Keep realistic textures and details\n- Preserve the original image composition where not modified\n- Create smooth transitions between masked and unmasked areas\n- Strictly follow the mask boundaries without bleeding effects\n\n[OUTPUT GUIDANCE]\nGenerate a single, complete image that:\n1. Modifies ONLY the white mask areas according to user requirements\n2. Keeps all black mask areas exactly as in the original image\n3. Ensures seamless integration between modified and preserved regions\n3. Outputs at exactly 1938x3840 resolution\n4. Delivers professional, high-quality results",
+    "size": "9:16",
+    "resolution": "4K",
+    "n": 1,
+    "image_urls": [
+      {
+        "url": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765281224082_微信图片_2025-12-03_173338_775.png"
+      }
+    ],
+    "mask_url": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765281293440_mask_1765281293429.png"
+  }
+}

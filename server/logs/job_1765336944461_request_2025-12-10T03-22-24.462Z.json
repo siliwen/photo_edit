@@ -1,0 +1,50 @@
+{
+  "project_id": "1765336944449",
+  "base_image": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765336770227_微信图片_2025-12-03_173338_775.png",
+  "reference_assets": [],
+  "mask_url": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765336944164_mask_1765336944154.png",
+  "mask_elements": [
+    {
+      "color": "#FF0000",
+      "type": "circle"
+    },
+    {
+      "color": "#FF0000",
+      "type": "circle"
+    },
+    {
+      "color": "#00FFFF",
+      "type": "rectangle"
+    },
+    {
+      "color": "#00FFFF",
+      "type": "rectangle"
+    },
+    {
+      "color": "#FFFF00",
+      "type": "rectangle"
+    },
+    {
+      "color": "#FFFF00",
+      "type": "rectangle"
+    },
+    {
+      "color": "#00FF00",
+      "type": "brush"
+    },
+    {
+      "color": "#00FF00",
+      "type": "brush"
+    },
+    {
+      "color": "#00FF00",
+      "type": "brush"
+    }
+  ],
+  "global_params": {
+    "output_resolution": "1938x3840",
+    "seed": 42,
+    "model": "banana2-pro"
+  },
+  "prompt": "@红色 换成猫头鹰 @青色 换成小蜜蜂  @黄色 换成针叶  @绿色 换成宝石 "
+}

@@ -1,0 +1,45 @@
+{
+  "taskId": "job_1765365096081",
+  "timestamp": "2025-12-10T11:11:36.085Z",
+  "apiEndpoint": "https://api.apimart.ai/v1/images/generations",
+  "originalPayload": {
+    "project_id": "1765365096058",
+    "base_image": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765364976605_7e7397d66e2f4694a76ca6b59f40878f.png",
+    "reference_assets": [
+      {
+        "id": "68aac8898e774beabb267ca8eb3d293f",
+        "url": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765364995964_68aac8898e774beabb267ca8eb3d293f.png",
+        "preprocess": "none"
+      },
+      {
+        "id": "弋珍",
+        "url": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765365039292_弋珍.jpg",
+        "preprocess": "none"
+      }
+    ],
+    "global_params": {
+      "output_resolution": "3840x2160",
+      "seed": 42,
+      "model": "banana2-pro"
+    },
+    "prompt": "@矩形一 的包更换成@弋珍 这个人穿的衣服   @矩形二的位置添加@68aac8898e774beabb267ca8eb3d293f logo\n@rect(1874,401,1819,1866) @rect(4929,2613,441,331)"
+  },
+  "apiRequestBody": {
+    "model": "gemini-3-pro-image-preview",
+    "prompt": "[任务定义]\n根据输入主图与用户需求生成高质量图像。\n输出分辨率：3840x2160\n\n[输入图片]\n- 图1：主图（需要修改的原图）\n- 图2：参考图\n- 图3：参考图\n\n[用户需求]\n@矩形一 的包更换成图3 这个人穿的衣服   @矩形二的位置添加图2 logo\n\n[坐标区域]\n- 区域 1：rectangle @ 1874,401;3693,401;3693,2267;1874,2267\n- 区域 2：rectangle @ 4929,2613;5370,2613;5370,2944;4929,2944\n\n基于坐标的修改仅影响所描述的区域，不得外溢。\n\n[质量要求]\n- 保持图像清晰与细节丰富\n- 维持自然光照与色彩一致性\n- 保持真实纹理与细节\n- 未修改区域保持与原图一致\n\n[输出指导]\n生成一张完整的最终图片，其应当：\n1. 按用户需求整体变换图像\n2. 保持自然外观与整体一致性\n3. 输出分辨率精确为 3840x2160\n4. 保持专业级高质量效果",
+    "size": "16:9",
+    "resolution": "4K",
+    "n": 1,
+    "image_urls": [
+      {
+        "url": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765364976605_7e7397d66e2f4694a76ca6b59f40878f.png"
+      },
+      {
+        "url": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765364995964_68aac8898e774beabb267ca8eb3d293f.png"
+      },
+      {
+        "url": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765365039292_弋珍.jpg"
+      }
+    ]
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "taskId": "job_1765365714565",
+  "timestamp": "2025-12-10T11:21:54.574Z",
+  "apiEndpoint": "https://api.apimart.ai/v1/images/generations",
+  "originalPayload": {
+    "project_id": "1765365714547",
+    "base_image": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765365565051_0e68851776f24f5d91d2f2cffa6ccc6e.jpeg",
+    "reference_assets": [
+      {
+        "id": "10ff0d36668c424c8fda420bd7133d42",
+        "url": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765365620840_10ff0d36668c424c8fda420bd7133d42.png",
+        "preprocess": "none"
+      },
+      {
+        "id": "刘丽平",
+        "url": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765365653432_刘丽平.png",
+        "preprocess": "none"
+      },
+      {
+        "id": "68aac8898e774beabb267ca8eb3d293f",
+        "url": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765365672338_68aac8898e774beabb267ca8eb3d293f.png",
+        "preprocess": "none"
+      }
+    ],
+    "global_params": {
+      "output_resolution": "3840x2160",
+      "seed": 42,
+      "model": "banana2-pro"
+    },
+    "prompt": "@rect(343,1145,768,374) 的衣服更换成@10ff0d36668c424c8fda420bd7133d42 的衣服样子   @rect(894,327,1059,925) 的衣服样子更换成@刘丽平 的衣服样子 @rect(142,75,370,224) 的位置替换为@68aac8898e774beabb267ca8eb3d293f 的logo\n@rect(894,327,1059,925) @rect(343,1145,767,374) @rect(142,75,370,224)"
+  },
+  "apiRequestBody": {
+    "model": "gemini-3-pro-image-preview",
+    "prompt": "[任务定义]\n根据输入主图与用户需求生成高质量图像。\n输出分辨率：3840x2160\n\n[输入图片]\n- 图1：主图（需要修改的原图）\n- 图2：参考图\n- 图3：参考图\n- 图4：参考图\n\n[用户需求]\n\n\n[坐标区域]\n- 区域 1：rectangle @ 343,1145;1111,1145;1111,1519;343,1519 -> 的衣服更换成图2 的衣服样子\n- 区域 2：rectangle @ 894,327;1953,327;1953,1252;894,1252 -> 的衣服样子更换成图3 的衣服样子\n- 区域 3：rectangle @ 142,75;512,75;512,299;142,299 -> 的位置替换为图4 的logo\n- 区域 4：rectangle @ 894,327;1953,327;1953,1252;894,1252\n- 区域 5：rectangle @ 343,1145;1110,1145;1110,1519;343,1519\n- 区域 6：rectangle @ 142,75;512,75;512,299;142,299\n\n基于坐标的修改仅影响所描述的区域，不得外溢。\n\n[质量要求]\n- 保持图像清晰与细节丰富\n- 维持自然光照与色彩一致性\n- 保持真实纹理与细节\n- 未修改区域保持与原图一致\n\n[输出指导]\n生成一张完整的最终图片，其应当：\n1. 按用户需求整体变换图像\n2. 保持自然外观与整体一致性\n3. 输出分辨率精确为 3840x2160\n4. 保持专业级高质量效果",
+    "size": "16:9",
+    "resolution": "4K",
+    "n": 1,
+    "image_urls": [
+      {
+        "url": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765365565051_0e68851776f24f5d91d2f2cffa6ccc6e.jpeg"
+      },
+      {
+        "url": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765365620840_10ff0d36668c424c8fda420bd7133d42.png"
+      },
+      {
+        "url": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765365653432_刘丽平.png"
+      },
+      {
+        "url": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765365672338_68aac8898e774beabb267ca8eb3d293f.png"
+      }
+    ]
+  }
+}

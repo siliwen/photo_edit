@@ -1,0 +1,7 @@
+{
+  "prompt": "整体风格微调，提升清晰度",
+  "base_image": "https://picsum.photos/seed/integration/1024/576",
+  "global_params": {
+    "output_resolution": "1024x576"
+  }
+}

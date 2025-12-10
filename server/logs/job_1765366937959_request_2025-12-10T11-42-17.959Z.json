@@ -1,0 +1,11 @@
+{
+  "project_id": "1765366937955",
+  "base_image": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765366568918_微信图片_2025-12-03_173338_775.png",
+  "reference_assets": [],
+  "global_params": {
+    "output_resolution": "1938x3840",
+    "seed": 42,
+    "model": "banana2-pro"
+  },
+  "prompt": "@rect(125,236,82,40) 鸟改成老虎  @rect(219,237,81,33) 鸟改成熊猫  @rect(30,92,52,102) 叶子改成针叶  @circle(210,386,33) 改成珍珠  @circle(211,63,22) 改成红宝石  大小保持不变\n@rect(125,236,82,40) @rect(219,237,81,33) @rect(30,92,52,102) @rect(210,386,15,29) @rect(211,63,17,14)"
+}

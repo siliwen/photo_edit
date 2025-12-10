@@ -1,0 +1,27 @@
+{
+  "project_id": "1765365714547",
+  "base_image": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765365565051_0e68851776f24f5d91d2f2cffa6ccc6e.jpeg",
+  "reference_assets": [
+    {
+      "id": "10ff0d36668c424c8fda420bd7133d42",
+      "url": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765365620840_10ff0d36668c424c8fda420bd7133d42.png",
+      "preprocess": "none"
+    },
+    {
+      "id": "刘丽平",
+      "url": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765365653432_刘丽平.png",
+      "preprocess": "none"
+    },
+    {
+      "id": "68aac8898e774beabb267ca8eb3d293f",
+      "url": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765365672338_68aac8898e774beabb267ca8eb3d293f.png",
+      "preprocess": "none"
+    }
+  ],
+  "global_params": {
+    "output_resolution": "3840x2160",
+    "seed": 42,
+    "model": "banana2-pro"
+  },
+  "prompt": "@rect(343,1145,768,374) 的衣服更换成@10ff0d36668c424c8fda420bd7133d42 的衣服样子   @rect(894,327,1059,925) 的衣服样子更换成@刘丽平 的衣服样子 @rect(142,75,370,224) 的位置替换为@68aac8898e774beabb267ca8eb3d293f 的logo\n@rect(894,327,1059,925) @rect(343,1145,767,374) @rect(142,75,370,224)"
+}

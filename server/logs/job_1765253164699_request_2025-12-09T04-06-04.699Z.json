@@ -1,0 +1,38 @@
+{
+  "project_id": "1765253164692",
+  "base_image": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765253005292_微信图片_2025-12-03_173338_775.png",
+  "reference_assets": [],
+  "mask_url": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765253164414_mask_1765253164359.png",
+  "mask_elements": [
+    {
+      "color": "#FF0000",
+      "type": "rectangle"
+    },
+    {
+      "color": "#FF0000",
+      "type": "rectangle"
+    },
+    {
+      "color": "#FF0000",
+      "type": "rectangle"
+    },
+    {
+      "color": "#FF0000",
+      "type": "rectangle"
+    },
+    {
+      "color": "#00FF00",
+      "type": "rectangle"
+    },
+    {
+      "color": "#00FF00",
+      "type": "rectangle"
+    }
+  ],
+  "global_params": {
+    "output_resolution": "426x844",
+    "seed": 42,
+    "model": "banana2-pro"
+  },
+  "prompt": "@红色 鸟的形象换成猫头鹰  @绿色 换成针叶"
+}

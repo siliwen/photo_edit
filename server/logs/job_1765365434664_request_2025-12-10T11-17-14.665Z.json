@@ -1,0 +1,22 @@
+{
+  "project_id": "1765365434648",
+  "base_image": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765364976605_7e7397d66e2f4694a76ca6b59f40878f.png",
+  "reference_assets": [
+    {
+      "id": "68aac8898e774beabb267ca8eb3d293f",
+      "url": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765364995964_68aac8898e774beabb267ca8eb3d293f.png",
+      "preprocess": "none"
+    },
+    {
+      "id": "弋珍",
+      "url": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765365039292_弋珍.jpg",
+      "preprocess": "none"
+    }
+  ],
+  "global_params": {
+    "output_resolution": "3840x2160",
+    "seed": 42,
+    "model": "banana2-pro"
+  },
+  "prompt": "@矩形一 的包更换成@弋珍 这个人穿的衣服   @矩形二 的位置添加@68aac8898e774beabb267ca8eb3d293f logo\n@rect(1874,401,1819,1866) @rect(4929,2613,441,331)"
+}

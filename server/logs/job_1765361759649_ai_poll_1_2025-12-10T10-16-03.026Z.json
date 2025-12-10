@@ -1,0 +1,16 @@
+{
+  "taskId": "job_1765361759649",
+  "timestamp": "2025-12-10T10:16:03.026Z",
+  "pollCount": 1,
+  "status": "pending",
+  "response": {
+    "code": 200,
+    "data": {
+      "created": 1765361760,
+      "estimated_time": 100,
+      "id": "task_01KC3W5E5GH7Y6ABQ3HT7JTSQ3",
+      "progress": 0,
+      "status": "pending"
+    }
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "taskId": "job_1765360519510",
+  "timestamp": "2025-12-10T09:55:19.516Z",
+  "apiEndpoint": "https://api.apimart.ai/v1/images/generations",
+  "originalPayload": {
+    "project_id": "1765360519506",
+    "base_image": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765358759164_微信图片_2025-12-03_173338_775.png",
+    "reference_assets": [
+      {
+        "id": "0828aae991264497b9f70be61bc21e29",
+        "url": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765360494316_0828aae991264497b9f70be61bc21e29.png",
+        "preprocess": "none"
+      }
+    ],
+    "mask_url": null,
+    "mask_elements": [
+      {
+        "id": "element_1765358765462",
+        "name": "矩形一",
+        "type": "rectangle",
+        "coords": [
+          124,
+          228,
+          202,
+          228,
+          202,
+          277,
+          124,
+          277
+        ]
+      },
+      {
+        "id": "element_1765358767445",
+        "name": "矩形二",
+        "type": "rectangle",
+        "coords": [
+          216,
+          228,
+          296,
+          228,
+          296,
+          281,
+          216,
+          281
+        ]
+      },
+      {
+        "id": "element_1765358770412",
+        "name": "矩形三",
+        "type": "rectangle",
+        "coords": [
+          105,
+          385,
+          184,
+          385,
+          184,
+          460,
+          105,
+          460
+        ]
+      },
+      {
+        "id": "element_1765358772795",
+        "name": "矩形四",
+        "type": "rectangle",
+        "coords": [
+          242,
+          382,
+          319,
+          382,
+          319,
+          470,
+          242,
+          470
+        ]
+      },
+      {
+        "id": "element_1765358777510",
+        "name": "矩形五",
+        "type": "rectangle",
+        "coords": [
+          123,
+          573,
+          205,
+          573,
+          205,
+          636,
+          123,
+          636
+        ]
+      }
+    ],
+    "global_params": {
+      "output_resolution": "1938x3840",
+      "seed": 42,
+      "model": "banana2-pro"
+    },
+    "prompt": "@矩形一 更改为@0828aae991264497b9f70be61bc21e29 图片上的包  @矩形二 更改为老虎   @矩形三 更改为绵阳  @矩形四 更改为蛇  @矩形五 更改为袋鼠"
+  },
+  "apiRequestBody": {
+    "model": "gemini-3-pro-image-preview",
+    "prompt": "[任务定义]\n根据输入主图与用户需求生成高质量图像。\n输出分辨率：1938x3840\n\n[输入图片]\n- 图1：主图（需要修改的原图）\n- 图2：参考图\n\n[用户需求]\n更改为图2 图片上的包   更改为老虎    更改为绵阳   更改为蛇   更改为袋鼠\n\n[质量要求]\n- 保持图像清晰与细节丰富\n- 维持自然光照与色彩一致性\n- 保持真实纹理与细节\n- 未修改区域保持与原图一致\n\n[输出指导]\n生成一张完整的最终图片，其应当：\n1. 按用户需求整体变换图像\n2. 保持自然外观与整体一致性\n3. 输出分辨率精确为 1938x3840\n4. 保持专业级高质量效果\n\n蒙版区域信息:\n蒙版中的白色区域: 白色区域包含5个元素",
+    "size": "9:16",
+    "resolution": "4K",
+    "n": 1,
+    "image_urls": [
+      {
+        "url": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765358759164_微信图片_2025-12-03_173338_775.png"
+      },
+      {
+        "url": "https://podi.oss-cn-hangzhou.aliyuncs.com/test/1765360494316_0828aae991264497b9f70be61bc21e29.png"
+      }
+    ]
+  }
+}

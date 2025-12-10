@@ -1,0 +1,12 @@
+{
+  "project_id": "test",
+  "base_image": "https://picsum.photos/seed/prodtest/1024/576",
+  "mask_url": null,
+  "mask_elements": [],
+  "global_params": {
+    "output_resolution": "1024x576",
+    "seed": 42,
+    "model": "banana2-pro"
+  },
+  "prompt": "整体风格偏科幻"
+}
