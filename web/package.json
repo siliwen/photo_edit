@@ -1,0 +1,28 @@
+{
+  "name": "ai-multi-image-editor",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "konva": "^9.0.0",
+    "react-konva": "^18.2.5",
+    "zustand": "^4.5.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "@vitejs/plugin-react": "^4.0.4",
+    "typescript": "^5.4.0",
+    "vite": "^5.0.10",
+    "vitest": "^2.0.0",
+    "jsdom": "^24.0.0"
+  }
+}
