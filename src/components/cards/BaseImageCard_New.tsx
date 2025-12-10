@@ -43,32 +43,10 @@ const BaseImageCard: React.FC = () => {
 
   useEffect(() => {
     if (!baseImage) { setImgEl(null); return }
-    
-    // 自动判断是否需要代理（OSS域名自动走代理）
-    let finalUrl = baseImage
-    try {
-      const urlObj = new URL(baseImage)
-      if (urlObj.hostname.includes('aliyuncs.com')) {
-        finalUrl = `/oss-proxy${urlObj.pathname}${urlObj.search}`
-        console.log('[图片加载] 检测到OSS链接，使用代理:', finalUrl)
-      }
-    } catch (e) {
-      console.warn('[图片加载] URL解析失败:', e)
-    }
-
     const img = new window.Image()
     img.crossOrigin = 'anonymous'
-    img.src = finalUrl
-    
+    img.src = baseImage
     img.onload = () => setImgEl(img)
-    img.onerror = (e) => {
-      console.error('[图片加载] 失败:', finalUrl, e)
-      // 如果代理失败，尝试原始链接（作为兜底，虽然可能跨域）
-      if (finalUrl !== baseImage) {
-        console.log('[图片加载] 代理失败，尝试原始链接...')
-        img.src = baseImage
-      }
-    }
   }, [baseImage])
 
   // 移除蒙版合成逻辑（统一采用标注坐标作为核心概念）
