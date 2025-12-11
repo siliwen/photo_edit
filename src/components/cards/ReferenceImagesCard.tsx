@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react'
 import { useAppStore } from '../../store'
-import { uploadToOSS } from '../../utils/upload'
+import { uploadFile } from '../../utils/upload'
 
 const ReferenceImagesCard: React.FC = () => {
   const addMaterials = useAppStore(s => s.addMaterials)
@@ -18,7 +18,7 @@ const ReferenceImagesCard: React.FC = () => {
       const nameCounter = new Map<string, number>()  // 记录文件名出现次数
       
       const uploadPromises = Array.from(files).map(async (f, i) => {
-        const ossUrl = await uploadToOSS(f)
+        const ossUrl = await uploadFile(f)
         console.log(`Material ${i} uploaded:`, ossUrl)
         
         // 提取文件名（去掉扩展名）

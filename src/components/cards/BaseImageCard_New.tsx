@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react'
 import { Stage, Layer, Image as KonvaImage, Line } from 'react-konva'
 import { useAppStore, MASK_COLORS, MaskElement } from '../../store'
-import { uploadToOSS } from '../../utils/upload'
+import { uploadFile } from '../../utils/upload'
 
 const BaseImageCard: React.FC = () => {
   const baseImage = useAppStore(s => s.baseImage)
@@ -59,7 +59,7 @@ const BaseImageCard: React.FC = () => {
       const localUrl = URL.createObjectURL(f)
       setBaseImage(localUrl)
       
-      const ossUrl = await uploadToOSS(f)
+      const ossUrl = await uploadFile(f)
       console.log('[图片上传] OSS URL:', ossUrl)
       setBaseImage(ossUrl)
       

@@ -5,7 +5,7 @@ import multipart from '@fastify/multipart'
 import fastifyStatic from '@fastify/static'
 import dotenv from 'dotenv'
 import fetch from 'node-fetch'
-import OSS from 'ali-oss'
+// import OSS from 'ali-oss'
 import { Readable } from 'stream'
 import fs from 'fs'
 import path from 'path'
@@ -214,20 +214,7 @@ await fastify.register(fastifyStatic, {
   prefix: '/uploads/'
 })
 
-// 初始化 OSS 客户端
-console.log('[OSS] 初始化 OSS 客户端...')
-console.log('[OSS] Endpoint:', process.env.OSS_ENDPOINT)
-console.log('[OSS] Bucket:', process.env.OSS_BUCKET)
-console.log('[OSS] AccessKeyId:', process.env.OSS_AK ? `${process.env.OSS_AK.substring(0, 8)}...` : 'NOT SET')
-
-const ossClient = new OSS({
-  region: process.env.OSS_ENDPOINT?.replace('.aliyuncs.com', '') || 'oss-cn-hangzhou',
-  accessKeyId: process.env.OSS_AK,
-  accessKeySecret: process.env.OSS_SK,
-  bucket: process.env.OSS_BUCKET || 'podi'
-})
-
-console.log('[OSS] OSS 客户端初始化完成')
+// OSS Client removed
 
 // 验证生成图片URL可访问
 async function waitForImageAccessible(url, retries = 10, delayMs = 1500) {
@@ -273,15 +260,7 @@ async function downloadImage(url) {
   return { buffer: buf, contentType: ct }
 }
 
-async function uploadResultToOSS(taskId, buffer, contentType) {
-  const ext = extFromContentType(contentType)
-  const filename = `${process.env.OSS_ROOT_PREFIX || 'test'}/results/${taskId}.${ext}`
-  console.log('[RESULT存储] 上传到OSS:', filename, '大小:', buffer.length)
-  const putRes = await ossClient.put(filename, buffer)
-  const publicUrl = process.env.OSS_PUBLIC_DOMAIN ? `${process.env.OSS_PUBLIC_DOMAIN}/${filename}` : putRes.url
-  saveRequestLog(taskId, 'oss_upload_result', { filename, publicUrl, size: buffer.length, contentType })
-  return publicUrl
-}
+// uploadResultToOSS removed
 
 async function ensureStoredResult(taskId, imageUrl) {
   // 1) 校验URL可访问
@@ -291,38 +270,35 @@ async function ensureStoredResult(taskId, imageUrl) {
     console.warn('[RESULT校验] URL不可访问或未就绪，直接返回原始URL')
     return imageUrl
   }
-  // 2) 下载并存储到OSS（若配置存在）或本地
+  // 2) 下载并存储到本地
   try {
-    const hasOSS = process.env.OSS_AK && process.env.OSS_SK && process.env.OSS_BUCKET
+    console.log('[RESULT存储] 使用本地存储')
+    const { buffer, contentType } = await downloadImage(imageUrl)
+    const ext = extFromContentType(contentType)
+    const filename = `result_${taskId}.${ext}`
     
-    if (!hasOSS) {
-      console.log('[RESULT存储] OSS未配置，降级到本地存储')
-      const { buffer, contentType } = await downloadImage(imageUrl)
-      const ext = extFromContentType(contentType)
-      const filename = `result_${taskId}.${ext}`
-      
-      const uploadsDir = path.join(process.cwd(), 'uploads')
-      const resultsDir = path.join(uploadsDir, 'results')
-      if (!fs.existsSync(resultsDir)) {
-        fs.mkdirSync(resultsDir, { recursive: true })
-      }
-      
-      const filepath = path.join(resultsDir, filename)
-      fs.writeFileSync(filepath, buffer)
-      
-      // 构建本地 URL，这里假设运行在本地，使用相对路径或硬编码端口
-      // 注意：这里我们没有 request 对象，所以无法动态获取 host
-      // 我们可以使用 process.env.PORT 或者默认 3001
-      const port = process.env.PORT || 3001
-      const storedUrl = `http://localhost:${port}/uploads/results/${filename}`
-      
-      console.log('[RESULT存储] 本地存储成功:', storedUrl)
-      return storedUrl
+    const uploadsDir = path.join(process.cwd(), 'uploads')
+    const resultsDir = path.join(uploadsDir, 'results')
+    if (!fs.existsSync(resultsDir)) {
+      fs.mkdirSync(resultsDir, { recursive: true })
     }
     
-    const { buffer, contentType } = await downloadImage(imageUrl)
-    const storedUrl = await uploadResultToOSS(taskId, buffer, contentType)
+    const filepath = path.join(resultsDir, filename)
+    fs.writeFileSync(filepath, buffer)
+    
+    // 构建本地 URL
+    // 我们需要一个基准URL。由于这是后端，我们不知道外部访问的域名。
+    // 但是前端是连接到这个后端的。
+    // 我们返回相对路径或者基于 PORT 的 localhost URL。
+    const port = process.env.PORT || 3001
+    // 使用相对路径 /uploads/... 如果前端和后端是同源的，或者后端代理。
+    // 但通常返回绝对 URL 更安全。
+    // 为了支持局域网访问，这里最好能获取到实际的 IP，但简化起见，我们使用 process.env.API_BASE_URL 如果有，或者 localhost
+    const storedUrl = `http://localhost:${port}/uploads/results/${filename}`
+    
+    console.log('[RESULT存储] 本地存储成功:', storedUrl)
     return storedUrl
+
   } catch (err) {
     console.error('[RESULT存储] 失败，回退使用原始URL:', (err && err.message) || String(err))
     return imageUrl
@@ -354,44 +330,22 @@ fastify.post('/api/upload', async (request, reply) => {
     console.log('[UPLOAD] 文件名:', filename, '大小:', buffer.length, 'bytes', `(${(buffer.length / 1024 / 1024).toFixed(2)} MB)`)
 
     // 验证 OSS 配置
-    const hasOSS = process.env.OSS_AK && process.env.OSS_SK && process.env.OSS_BUCKET && !process.env.OSS_BUCKET.includes('your_')
+    // OSS 逻辑已移除
     
     let publicUrl
-    let useLocal = !hasOSS
-
-    if (hasOSS) {
-      try {
-        // 上传到 OSS
-        console.log('[UPLOAD] 开始上传到 OSS...')
-        console.log('[UPLOAD] OSS Bucket:', process.env.OSS_BUCKET)
-        console.log('[UPLOAD] OSS Region:', process.env.OSS_ENDPOINT?.replace('.aliyuncs.com', ''))
-        
-        const result = await ossClient.put(filename, buffer)
-        console.log('[UPLOAD] OSS 上传成功:', result.name)
-        console.log('[UPLOAD] OSS 响应:', JSON.stringify(result, null, 2))
-        
-        // 返回公开访问 URL
-        publicUrl = process.env.OSS_PUBLIC_DOMAIN 
-          ? `${process.env.OSS_PUBLIC_DOMAIN}/${filename}`
-          : result.url
-      } catch (ossError) {
-        console.error('[UPLOAD] OSS 上传失败，尝试降级到本地存储:', ossError.message)
-        useLocal = true
-      }
-    }
     
-    if (useLocal) {
-      // 降级到本地存储
-      console.log('[UPLOAD] 使用本地存储')
-      const localFilename = `${Date.now()}_${data.filename}`
-      const localFilepath = path.join(uploadsDir, localFilename)
-      fs.writeFileSync(localFilepath, buffer)
-      
-      const protocol = request.protocol
-      const host = request.hostname
-      publicUrl = `${protocol}://${host}/uploads/${localFilename}`
-      console.log('[UPLOAD] 本地存储成功:', localFilepath)
-    }
+    // 使用本地存储
+    console.log('[UPLOAD] 使用本地存储')
+    const localFilename = `${Date.now()}_${data.filename}`
+    const localFilepath = path.join(uploadsDir, localFilename)
+    fs.writeFileSync(localFilepath, buffer)
+    
+    const protocol = request.protocol
+    const host = request.hostname
+    // 注意：request.hostname 可能不包含端口，如果前端连接的是 localhost:3001，hostname 可能是 localhost
+    // 如果是开发环境，通常没问题。
+    publicUrl = `${protocol}://${host}/uploads/${localFilename}`
+    console.log('[UPLOAD] 本地存储成功:', localFilepath)
 
     console.log('[UPLOAD] 返回 URL:', publicUrl)
 
@@ -495,6 +449,36 @@ fastify.get('/api/health', async (request, reply) => {
   }
   reply.send({ ok: true, port: process.env.PORT || 3001, stats })
 })
+
+// Helper to convert local URL to Base64
+function convertLocalUrlToBase64(url) {
+  try {
+    if (!url) return url
+    // Check if it's a local URL (localhost or relative)
+    if (url.includes('localhost') || url.includes('127.0.0.1') || url.startsWith('/uploads/')) {
+      const filename = url.split('/').pop()
+      const uploadsDir = path.join(process.cwd(), 'uploads')
+      const filepath = path.join(uploadsDir, filename)
+      
+      if (fs.existsSync(filepath)) {
+        const buffer = fs.readFileSync(filepath)
+        // Simple mime type detection
+        const ext = path.extname(filename).toLowerCase()
+        let mimeType = 'image/jpeg'
+        if (ext === '.png') mimeType = 'image/png'
+        else if (ext === '.webp') mimeType = 'image/webp'
+        
+        const base64 = buffer.toString('base64')
+        console.log(`[Base64] Converted local file ${filename} to base64 (${base64.length} chars)`)
+        return `data:${mimeType};base64,${base64}`
+      }
+    }
+    return url
+  } catch (e) {
+    console.error(`[Base64] Failed to convert ${url}:`, e.message)
+    return url
+  }
+}
 
 // 处理任务（对接 Nano banana2 pro）
 async function processTask(taskId, payload, retryCount = 0) {
@@ -741,15 +725,17 @@ async function processTask(taskId, payload, retryCount = 0) {
   
   // ✅ 第1张图：主图（base_image）
   if (payload.base_image) {
-    imageUrls.push({ url: payload.base_image })
-    console.log(`[TASK ${taskId}] 主图 (image 1): ${payload.base_image}`)
+    const base64Url = convertLocalUrlToBase64(payload.base_image)
+    imageUrls.push({ url: base64Url })
+    console.log(`[TASK ${taskId}] 主图 (image 1): ${payload.base_image} -> ${base64Url.startsWith('data:') ? 'Base64 (' + base64Url.length + ' chars)' : base64Url}`)
   }
   
   // ✅ 第2,3,4...张图：参考图（reference_assets）
   if (payload.reference_assets && payload.reference_assets.length > 0) {
     payload.reference_assets.forEach((asset, index) => {
-      imageUrls.push({ url: asset.url })
-      console.log(`[TASK ${taskId}] 参考图 (image ${index + 2}): ${asset.url}`)
+      const base64Url = convertLocalUrlToBase64(asset.url)
+      imageUrls.push({ url: base64Url })
+      console.log(`[TASK ${taskId}] 参考图 (image ${index + 2}): ${asset.url} -> ${base64Url.startsWith('data:') ? 'Base64 (' + base64Url.length + ' chars)' : base64Url}`)
     })
   }
   
@@ -936,7 +922,12 @@ async function processTask(taskId, payload, retryCount = 0) {
           updateTask(taskId, pushTimeline(tasks.get(taskId), 'polling_complete', String(imageUrl)))
           return imageUrl
         } else if (taskStatus === 'failed' || taskStatus === 'error') {
-          const errorMsg = taskData?.error || taskData?.message || 'Unknown error'
+          let errorMsg = 'Unknown error'
+          if (taskData?.error) {
+            errorMsg = typeof taskData.error === 'object' ? JSON.stringify(taskData.error) : taskData.error
+          } else if (taskData?.message) {
+            errorMsg = taskData.message
+          }
           throw new Error(`API 任务失败: ${errorMsg}`)
         }
         

@@ -1,9 +1,9 @@
 /**
- * 上传文件到后端 OSS
+ * 上传文件到后端 (本地存储)
  * @param file 文件对象
  * @returns 返回公开访问的 URL
  */
-export async function uploadToOSS(file: File): Promise<string> {
+export async function uploadFile(file: File): Promise<string> {
   console.log('[前端上传] 开始上传文件:', file.name, '大小:', file.size, 'bytes')
   
   const formData = new FormData()
@@ -54,5 +54,5 @@ export function dataURLtoFile(dataurl: string, filename: string): File {
  */
 export async function uploadDataURL(dataURL: string, filename: string): Promise<string> {
   const file = dataURLtoFile(dataURL, filename)
-  return uploadToOSS(file)
+  return uploadFile(file)
 }
