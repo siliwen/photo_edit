@@ -2,6 +2,7 @@ import Fastify from 'fastify'
 import cors from '@fastify/cors'
 import websocket from '@fastify/websocket'
 import multipart from '@fastify/multipart'
+import fastifyStatic from '@fastify/static'
 import dotenv from 'dotenv'
 import fetch from 'node-fetch'
 import OSS from 'ali-oss'
@@ -201,6 +202,18 @@ await fastify.register(multipart, {
   }
 })
 
+// 创建上传目录
+const uploadsDir = path.join(process.cwd(), 'uploads')
+if (!fs.existsSync(uploadsDir)) {
+  fs.mkdirSync(uploadsDir, { recursive: true })
+}
+
+// 注册静态文件服务
+await fastify.register(fastifyStatic, {
+  root: uploadsDir,
+  prefix: '/uploads/'
+})
+
 // 初始化 OSS 客户端
 console.log('[OSS] 初始化 OSS 客户端...')
 console.log('[OSS] Endpoint:', process.env.OSS_ENDPOINT)
@@ -278,12 +291,35 @@ async function ensureStoredResult(taskId, imageUrl) {
     console.warn('[RESULT校验] URL不可访问或未就绪，直接返回原始URL')
     return imageUrl
   }
-  // 2) 下载并存储到OSS（若配置存在）
+  // 2) 下载并存储到OSS（若配置存在）或本地
   try {
-    if (!process.env.OSS_AK || !process.env.OSS_SK || !process.env.OSS_BUCKET) {
-      console.warn('[RESULT存储] OSS未配置，直接返回原始URL')
-      return imageUrl
+    const hasOSS = process.env.OSS_AK && process.env.OSS_SK && process.env.OSS_BUCKET
+    
+    if (!hasOSS) {
+      console.log('[RESULT存储] OSS未配置，降级到本地存储')
+      const { buffer, contentType } = await downloadImage(imageUrl)
+      const ext = extFromContentType(contentType)
+      const filename = `result_${taskId}.${ext}`
+      
+      const uploadsDir = path.join(process.cwd(), 'uploads')
+      const resultsDir = path.join(uploadsDir, 'results')
+      if (!fs.existsSync(resultsDir)) {
+        fs.mkdirSync(resultsDir, { recursive: true })
+      }
+      
+      const filepath = path.join(resultsDir, filename)
+      fs.writeFileSync(filepath, buffer)
+      
+      // 构建本地 URL，这里假设运行在本地，使用相对路径或硬编码端口
+      // 注意：这里我们没有 request 对象，所以无法动态获取 host
+      // 我们可以使用 process.env.PORT 或者默认 3001
+      const port = process.env.PORT || 3001
+      const storedUrl = `http://localhost:${port}/uploads/results/${filename}`
+      
+      console.log('[RESULT存储] 本地存储成功:', storedUrl)
+      return storedUrl
     }
+    
     const { buffer, contentType } = await downloadImage(imageUrl)
     const storedUrl = await uploadResultToOSS(taskId, buffer, contentType)
     return storedUrl
@@ -318,24 +354,45 @@ fastify.post('/api/upload', async (request, reply) => {
     console.log('[UPLOAD] 文件名:', filename, '大小:', buffer.length, 'bytes', `(${(buffer.length / 1024 / 1024).toFixed(2)} MB)`)
 
     // 验证 OSS 配置
-    if (!process.env.OSS_AK || !process.env.OSS_SK || !process.env.OSS_BUCKET) {
-      console.error('[UPLOAD] OSS 配置不完整')
-      throw new Error('OSS configuration is incomplete')
+    const hasOSS = process.env.OSS_AK && process.env.OSS_SK && process.env.OSS_BUCKET && !process.env.OSS_BUCKET.includes('your_')
+    
+    let publicUrl
+    let useLocal = !hasOSS
+
+    if (hasOSS) {
+      try {
+        // 上传到 OSS
+        console.log('[UPLOAD] 开始上传到 OSS...')
+        console.log('[UPLOAD] OSS Bucket:', process.env.OSS_BUCKET)
+        console.log('[UPLOAD] OSS Region:', process.env.OSS_ENDPOINT?.replace('.aliyuncs.com', ''))
+        
+        const result = await ossClient.put(filename, buffer)
+        console.log('[UPLOAD] OSS 上传成功:', result.name)
+        console.log('[UPLOAD] OSS 响应:', JSON.stringify(result, null, 2))
+        
+        // 返回公开访问 URL
+        publicUrl = process.env.OSS_PUBLIC_DOMAIN 
+          ? `${process.env.OSS_PUBLIC_DOMAIN}/${filename}`
+          : result.url
+      } catch (ossError) {
+        console.error('[UPLOAD] OSS 上传失败，尝试降级到本地存储:', ossError.message)
+        useLocal = true
+      }
+    }
+    
+    if (useLocal) {
+      // 降级到本地存储
+      console.log('[UPLOAD] 使用本地存储')
+      const localFilename = `${Date.now()}_${data.filename}`
+      const localFilepath = path.join(uploadsDir, localFilename)
+      fs.writeFileSync(localFilepath, buffer)
+      
+      const protocol = request.protocol
+      const host = request.hostname
+      publicUrl = `${protocol}://${host}/uploads/${localFilename}`
+      console.log('[UPLOAD] 本地存储成功:', localFilepath)
     }
 
-    // 上传到 OSS
-    console.log('[UPLOAD] 开始上传到 OSS...')
-    console.log('[UPLOAD] OSS Bucket:', process.env.OSS_BUCKET)
-    console.log('[UPLOAD] OSS Region:', process.env.OSS_ENDPOINT?.replace('.aliyuncs.com', ''))
-    
-    const result = await ossClient.put(filename, buffer)
-    console.log('[UPLOAD] OSS 上传成功:', result.name)
-    console.log('[UPLOAD] OSS 响应:', JSON.stringify(result, null, 2))
-    
-    // 返回公开访问 URL
-    const publicUrl = process.env.OSS_PUBLIC_DOMAIN 
-      ? `${process.env.OSS_PUBLIC_DOMAIN}/${filename}`
-      : result.url
     console.log('[UPLOAD] 返回 URL:', publicUrl)
 
     reply.send({ 
